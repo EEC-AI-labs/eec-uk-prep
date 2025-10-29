@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.prose h2, .prose h3, .prose h4 {
+  color: #1e293b;
+  font-weight: 700;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.prose ul li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: 0.75rem;
+  color: #475569;
+}
+
+.prose ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: #4f46e5;
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+.prose mark {
+  background-color: #fef08a;
+  padding: 0.1em 0.3em;
+  border-radius: 0.25rem;
+  font-weight: 500;
+}
+
+.feedback-section {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-left-width: 4px;
+  border-radius: 0.25rem;
+}
+
+.feedback-positive {
+  border-color: #22c55e;
+  background-color: #f0fdf4;
+}
+
+.feedback-improvement {
+  border-color: #f97316;
+  background-color: #fff7ed;
+}
+
+.feedback-section h5 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.ai-content-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+}
