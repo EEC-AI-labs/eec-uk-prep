@@ -1,5 +1,18 @@
 // /api/gemini.js
 export default async function handler(req, res) {
+
+
+
+  // ✅ Allow CORS for both local development and deployed frontend
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  // ✅ Handle preflight requests (CORS check)
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+  
     if (req.method !== "POST") {
       return res.status(405).json({ error: "Method not allowed" });
     }
@@ -7,7 +20,7 @@ export default async function handler(req, res) {
     try {
       const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
       
-      console.log(GEMINI_API_KEY);
+      // console.log(GEMINI_API_KEY);
       if (!GEMINI_API_KEY) {
         return res.status(500).json({ error: "Missing GEMINI_API_KEY" });
       }
