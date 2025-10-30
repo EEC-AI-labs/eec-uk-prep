@@ -6,17 +6,17 @@ export default async function handler(req, res) {
   
     try {
       const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-
+      
       console.log(GEMINI_API_KEY);
       if (!GEMINI_API_KEY) {
         return res.status(500).json({ error: "Missing GEMINI_API_KEY" });
       }
-  
-      const body = await req.text();
+      
+      const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+      const body = req.body; 
       if (!body) return res.status(400).json({ error: "Empty request body" });
   
       const payload = JSON.parse(body);
-      const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
   
       const upstreamResponse = await fetch(API_URL, {
         method: "POST",
