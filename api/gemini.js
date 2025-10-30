@@ -16,7 +16,7 @@ export default async function handler(req, res) {
       const body = req.body; 
       if (!body) return res.status(400).json({ error: "Empty request body" });
   
-      const payload = JSON.parse(body);
+      const payload = body;
   
       const upstreamResponse = await fetch(API_URL, {
         method: "POST",
@@ -48,6 +48,7 @@ export default async function handler(req, res) {
   
       return res.status(200).json(data);
     } catch (err) {
+      console.log(err)
       return res.status(500).json({ error: "Proxy failed", message: err.message });
     }
   }
